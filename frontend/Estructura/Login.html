@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login - WinShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../Diseño/login.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Bienvenido a WinShop</h2>
+
+        <p class="subtitle">
+            Ingresa tu usuario y contraseña
+        </p>
+
+        <div class="error-msg" id="errorLogin">
+            Usuario o contraseña incorrectos
+        </div>
+
+        <form id="formLogin">
+
+            <label>Correo electrónico</label>
+            <input
+                name="correo"
+                type="email" 
+                placeholder="Ingresa tu correo" 
+                required
+            >
+
+            <label>Contraseña</label>
+            <input
+                name="password"
+                type="password" 
+                placeholder="Ingresa tu contraseña" 
+                required
+            >
+
+            <button>
+                Iniciar Sesión
+            </button>
+
+        </form>
+
+        <p class="registro">
+            ¿No tienes cuenta?
+            <a href="Registro.html">Regístrate aquí</a>
+        </p>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2025 WinShop - Todos los derechos reservados.
+</footer>
+
+<script src="../Funcionalidad/login.js"></script>
+
+</body>
+</html>

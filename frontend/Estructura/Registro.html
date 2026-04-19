@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - WinShop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="../Diseño/registro.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Crea tu cuenta</h2>
+
+        <p class="subtitle">
+            Ingresa tus datos para registrarte
+        </p>
+
+        <form id="formRegistro">
+
+            <label>Nombre completo</label>
+            <input
+                name="nombre"
+                type="text"
+                placeholder="Ingresa tu nombre completo"
+                required
+            >
+
+            <label>Correo electrónico</label>
+            <input 
+                name="correo"
+                type="email"
+                placeholder="Ingresa tu correo"
+                required
+            >
+
+            <label>Usuario</label>
+            <input
+                name="usuario"
+                type="text"
+                placeholder="Crea un usuario"
+                required
+            >
+
+            <label>Contraseña</label>
+            <input
+                name="password"
+                type="password"
+                placeholder="Crea una contraseña"
+                required
+            >
+
+            <label>Confirmar contraseña</label>
+            <input
+                name="password"
+                type="password"
+                placeholder="Repite la contraseña"
+                required
+            >
+
+            <label>Tipo de cuenta</label>
+
+            <select required>
+                <option value="" disabled selected>
+                    Selecciona tu rol
+                </option>
+                <option value="cliente">Cliente</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
+
+            <button>
+                Registrarse
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<footer>
+    © 2025 WinShop - Todos los derechos reservados.
+</footer>
+
+<script src="../Funcionalidad/authentication.js"></script>
+
+</body>
+</html>
