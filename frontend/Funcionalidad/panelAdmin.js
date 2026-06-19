@@ -1,4 +1,4 @@
-let listaUsuariosGlobal = []; // <-- Agrega esto arriba del todo
+let listaUsuariosGlobal = [];
 
 async function usuarios() {
     const res = await fetch("http://localhost:3000/usuarios");
@@ -33,8 +33,8 @@ async function usuarios() {
         document.getElementById("stat-total-vendedores").textContent = totalVendedores;
         document.getElementById("stat-total-usuarios").textContent = users.length;
     
-        // PASO 3: Creas el molde HTML usando los datos reales
-        // Aquí es donde usas las comillas invertidas `` y metes el <tr>, los <td>,
+        // PASO 3: Se Crea el molde HTML usando los datos reales
+        // Aquí se usan las comillas invertidas `` y las etiquetas para tablas del html
         // Este es el molde que se repetirá por cada usuario en la base de datos
         // 
         let filaHTML = `
@@ -59,7 +59,7 @@ async function usuarios() {
     // Al final de la vuelta, le sumas este molde al contenido de la tabla
     }
 
-    // 👈 PEGA ESTE BLOQUE AL FINAL DE TU ARCHIVO
+    // 👈 buscador por filtro
 let inputBuscar = document.getElementById("input-buscar-usuario");
 
 inputBuscar.addEventListener("input", () => {
@@ -156,7 +156,7 @@ async function eliminarUsuario() {
         usuarios(); // Recargamos la tabla limpia
         
         // Pasamos el mensaje del backend ("Usuario eliminado correctamente...")
-        // Usamos 'success' para que salga verde o el color de éxito que prefieras
+        // Usamos 'success' para que salga verde como color de éxito
         mostrarToast(datosServidor.mensaje, "success"); 
     } else {
         // SI EL BACKEND LO BLOQUEÓ (Estado 403 o 404):
