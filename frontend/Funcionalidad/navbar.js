@@ -4,6 +4,7 @@ let logout = document.getElementById("nav-logout");
 let user = document.getElementById("nav-user");
 let panelVendedor = document.getElementById("nav-panel");
 let carrito = document.getElementById("nav-cart");
+let panelAdmin = document.getElementById("nav-panelAdmin");
 
 function actualizarNavbar(){
     let usuarioTexto = localStorage.getItem("usuarios");
@@ -17,7 +18,11 @@ function actualizarNavbar(){
         user.querySelector("a").textContent = usuarioObjeto.correo.split("@")[0];
         if(usuarioObjeto.rol === "vendedor"){
             panelVendedor.style.display = "block"
+        }else if(usuarioObjeto.rol === "admin"){
+            panelVendedor.style.display = "block";
+            panelAdmin.style.display = "block";
         }else{
+            panelAdmin.style.display = "none";
             panelVendedor.style.display = "none";
         }
     }else{

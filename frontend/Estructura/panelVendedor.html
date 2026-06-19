@@ -13,57 +13,39 @@
 <body>
 
 <nav class="navbar">
-
     <div class="nav-container">
-
-        <div class="logo">
-            WinShop
-        </div>
-
-        <div class="menu-toggle" id="menu-toggle">
-            ☰
-        </div>
+        <div class="logo">Win<span>Shop</span></div>
+        
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
         <ul class="nav-links" id="nav-links">
-
-            <li id="nav-login">
-                <a href="login.html">Iniciar sesión</a>
-            </li>
-
-            <li id="nav-user" style="display:none">
-                <a href="#"></a>
-            </li>
-
-            <li>
-                <a href="Index.html">Inicio</a>
-            </li>
-
-            <li id="nav-register">
-                <a href="registro.html">Registrarse</a>
-            </li>
-
-            <li id="nav-support">
-                <a href="contacto.html">Soporte</a>
-            </li>
-
+            <li id="nav-login"><a href="login.html">Iniciar sesión</a></li>
+            <li id="nav-user" style="display:none"><a href="#"></a></li>
+            <li><a href="Index.html" class="active-link">Inicio</a></li>
+            <li id="nav-productos"><a href="productos.html">Productos</a></li>
+            <li id="nav-register"><a href="registro.html">Registrarse</a></li>
+            <li id="nav-support"><a href="contacto.html">Soporte</a></li>
+            
             <li id="nav-cart" style="display: none;">
-                <a href="carrito.html">
-                    🛒 <span id="cart-count">0</span>
-                </a>
+                <a href="#" class="cart-badge">🛒 <span id="cart-count">0</span></a>
+                
+                <section id="carrito">
+                    <h3>Tu carrito</h3>
+                    <div id="Productos-agregados">
+                        <ul></ul>
+                    </div>
+                    <div class="total-box">
+                        <p>Total: <span id="totalCarrito">0</span></p>
+                    </div>
+                    <button id="confirm">Confirmar compra</button>
+                </section>
             </li>
 
-            <li id="nav-panel" style="display:none">
-                <a href="panelVendedor.html">Mi Panel</a>
-            </li>
-
-            <li id="nav-logout" style="display: none;">
-                <a href="#">Cerrar sesión</a>
-            </li>
-
+            <li id="nav-panelAdmin" style="display:none"><a href="panelAdmin.html">Administración</a></li>
+            <li id="nav-panel" style="display:none"><a href="panelVendedor.html">Ventas</a></li>
+            <li id="nav-logout" style="display: none;"><a href="#">Cerrar sesión</a></li>
         </ul>
-
     </div>
-
 </nav>
 
 <div class="container">
@@ -243,6 +225,20 @@
 
 <script src="../Funcionalidad/menuHambuguesa.js"></script>
 <script src="../Funcionalidad/navbar.js"></script>
+<script>
+    // Abre y cierra el carrito al presionar el botón en móvil
+document.querySelector('#nav-cart > a').addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+        e.preventDefault(); 
+        document.getElementById('nav-cart').classList.toggle('active');
+    }
+});
+
+// Evita que el carrito se cierre si presionas dentro de él (lista de productos, confirmar compra, etc.)
+document.getElementById('carrito').addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+</script>
 
 </body>
 </html>

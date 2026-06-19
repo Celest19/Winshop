@@ -15,77 +15,86 @@
 
     <div class="card">
 
-        <h2>Crea tu cuenta</h2>
+        <a href="Index.html" class="back-to-home">← Volver al inicio</a>
+
+        <h2>Crea tu cuenta en <span>WinShop</span></h2>
 
         <p class="subtitle">
-            Ingresa tus datos para registrarte
+            Ingresa tus datos para registrarte en la plataforma
         </p>
+
+        <div class="error-msg" id="errorRegistro"></div>
 
         <form id="formRegistro">
 
-            <label>Nombre completo</label>
+            <label for="nombre">Nombre completo</label>
             <input
+                id="nombre"
                 name="nombre"
                 type="text"
                 placeholder="Ingresa tu nombre completo"
                 required
             >
 
-            <label>Correo electrónico</label>
+            <label for="correo">Correo electrónico</label>
             <input 
+                id="correo"
                 name="correo"
                 type="email"
-                placeholder="Ingresa tu correo"
+                placeholder="ejemplo@correo.com"
                 required
             >
 
-            <label>Usuario</label>
+            <label for="usuario">Usuario</label>
             <input
+                id="usuario"
                 name="usuario"
                 type="text"
-                placeholder="Crea un usuario"
+                placeholder="Crea un nombre de usuario"
                 required
             >
 
-            <label>Contraseña</label>
+            <label for="password">Contraseña</label>
             <input
+                id="password"
                 name="password"
                 type="password"
-                placeholder="Crea una contraseña"
+                placeholder="Crea una contraseña segura"
                 required
             >
 
-            <label>Confirmar contraseña</label>
+            <label for="confirmPassword">Confirmar contraseña</label>
             <input
-                name="password"
+                id="confirmPassword"
+                name="confirmPassword"
                 type="password"
                 placeholder="Repite la contraseña"
                 required
             >
 
-            <label>Tipo de cuenta</label>
-
-            <select required>
-                <option value="" disabled selected>
-                    Selecciona tu rol
-                </option>
-                <option value="cliente">Cliente</option>
-                <option value="vendedor">Vendedor</option>
+            <label for="rol">Tipo de cuenta</label>
+            <select id="rol" name="rol" required>
+                <option value="" disabled selected>Selecciona tu rol en la tienda</option>
+                <option value="cliente">Cliente (Quiero comprar)</option>
+                <option value="vendedor">Vendedor (Quiero ofrecer productos)</option>
             </select>
 
-            <button>
+            <button type="submit">
                 Registrarse
             </button>
 
         </form>
 
+        <p class="login-back">
+            ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a>
+        </p>
+
     </div>
 
 </div>
 
-
 <footer>
-    © 2025 WinShop - Todos los derechos reservados.
+    © 2026 WinShop - Proyecto Universitario - Todos los derechos reservados.
 </footer>
 
 <script src="../Funcionalidad/authentication.js"></script>

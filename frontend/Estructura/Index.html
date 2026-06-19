@@ -4,238 +4,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WinShop - Catálogo</title>
+    <title>WinShop - El E-Commerce del Futuro</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="../Diseño/style.css">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar">
-
     <div class="nav-container">
-
-        <div class="logo">
-            WinShop
-        </div>
+        <div class="logo">Win<span>Shop</span></div>
         
-        <div class="menu-toggle" id="menu-toggle">
-            ☰
-        </div>
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
         <ul class="nav-links" id="nav-links">
-
+            <li id="nav-login"><a href="login.html">Iniciar sesión</a></li>
+            <li id="nav-user" style="display:none"><a href="#"></a></li>
+            <li><a href="Index.html" class="active-link">Inicio</a></li>
+            <li id="nav-productos"><a href="productos.html">Productos</a></li>
+            <li id="nav-register"><a href="registro.html">Registrarse</a></li>
+            <li id="nav-support"><a href="contacto.html">Soporte</a></li>
             
-            
-            <li id="nav-login">
-                <a href="login.html">Iniciar sesión</a>
-            </li>
-
-            
-
-            <li id="nav-user" style="display:none">
-                <a href="#"></a>
-            </li>
-
-            <li>
-                <a href="Index.html">Inicio</a>
-            </li>
-
-            <li id="nav-register">
-                <a href="registro.html">Registrarse</a>
-            </li>
-
-            <li id="nav-support">
-                <a href="contacto.html">Soporte</a>
-            </li>
-
             <li id="nav-cart" style="display: none;">
-                <a href="carrito.html">
-                    🛒 <span id="cart-count">0</span>
-                </a>
+                <a href="#" class="cart-badge">🛒 <span id="cart-count">0</span></a>
+                
+                <section id="carrito">
+                    <h3>Tu carrito</h3>
+                    <div id="Productos-agregados">
+                        <ul></ul>
+                    </div>
+                    <div class="total-box">
+                        <p>Total: <span id="totalCarrito">0</span></p>
+                    </div>
+                    <button id="confirm">Confirmar compra</button>
+                </section>
             </li>
 
-            <li id="nav-panel" style="display:none">
-                <a href="panelVendedor.html">Mi Panel</a>
-            </li>
-
-            <li id="nav-logout" style="display: none;">
-                <a href="#">Cerrar sesión</a>
-            </li>
-
+            <li id="nav-panelAdmin" style="display:none"><a href="panelAdmin.html">Administración</a></li>
+            <li id="nav-panel" style="display:none"><a href="panelVendedor.html">Ventas</a></li>
+            <li id="nav-logout" style="display: none;"><a href="#">Cerrar sesión</a></li>
         </ul>
-
     </div>
-
 </nav>
 
 
-<!-- HEADER -->
-
-<header class="header">
-
-    <h1>Catálogo de Productos</h1>
-
-    <p>Encuentra lo que buscas con facilidad</p>
-
+<header class="header header-inicio">
+    <h1>Descubre un universo de posibilidades</h1>
+    <p>Las mejores marcas, precios imbatibles y envíos express en un solo lugar.</p>
     <div class="buscador">
-
-        <input type="text" id="searchInput" placeholder="Buscar productos">
-
-        <button id="searchButton">
-            Buscar
-        </button>
-
+        <input type="text" id="searchInput" placeholder="Buscar productos, marcas, categorías...">
+        <button id="searchButton"><span>Buscar</span></button>
     </div>
-
 </header>
 
 
-<!-- PRODUCTOS -->
-
-<section id="productos">
-
-    <div class="productos-container" id="contenedor-productos">
-
-
-        <div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 1</h3>
-    <p>$10.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 2</h3>
-    <p>$15.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 3</h3>
-    <p>$20.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 4</h3>
-    <p>$25.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 5</h3>
-    <p>$30.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 6</h3>
-    <p>$35.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 7</h3>
-    <p>$40.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 8</h3>
-    <p>$45.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 9</h3>
-    <p>$50.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-<div class="card">
-    <img src="../Imagenes/game-a-hat-in-time.jpg" alt="">
-    <h3>Producto 10</h3>
-    <p>$60.00</p>
-    <button class="btn-agregar">Agregar</button>
-</div>
-
-        <!-- productos dinámicos -->
-
+<section class="beneficios-container">
+    <div class="beneficio-item">
+        <div class="beneficio-icono">💳</div>
+        <div class="beneficio-texto">
+            <h4>Paga a cuotas</h4>
+            <p>Sin tarjeta de crédito</p>
+        </div>
     </div>
-
+    <div class="beneficio-item">
+        <div class="beneficio-icono">🚚</div>
+        <div class="beneficio-texto">
+            <h4>Envío Gratis</h4>
+            <p>En miles de productos</p>
+        </div>
+    </div>
+    <div class="beneficio-item">
+        <div class="beneficio-icono">🛡️</div>
+        <div class="beneficio-texto">
+            <h4>Compra Protegida</h4>
+            <p>Te devolvemos tu dinero</p>
+        </div>
+    </div>
 </section>
 
 
-<!-- CARRITO -->
-
-<section id="carrito">
-
-    <h3>Tu carrito</h3>
-
-    <div id="Productos-agregados">
-
-        <ul></ul>
-
+<section class="carrusel-container">
+    <button class="carrusel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+    <button class="carrusel-btn next" onclick="moveSlide(1)">&#10095;</button>
+    
+    <div class="carrusel-track" id="carruselTrack">
+        <div class="carrusel-slide">
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Slide 1">
+            <div class="carrusel-caption bg-cyan">
+                <span class="tag-live">OFERTA IMPERDIBLE</span>
+                <h2>Semana Gamer: Hasta 40% OFF</h2>
+                <p>Equípate con setup de nivel profesional y periféricos seleccionados.</p>
+            </div>
+        </div>
+        <div class="carrusel-slide">
+            <img src="../Imagenes/MV5BMDkxMzExYjAtZmQwMC00MmQzLWE1M2QtMGEwY2M1N2I0NDIwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Slide 2">
+            <div class="carrusel-caption bg-purple">
+                <span class="tag-live">NUEVA ERA</span>
+                <h2>Smartphones y Tecnología 2026</h2>
+                <p>Lleva la conectividad al extremo con los últimos lanzamientos globales.</p>
+            </div>
+        </div>
+        <div class="carrusel-slide">
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Slide 3">
+            <div class="carrusel-caption bg-green">
+                <span class="tag-live">ENVÍOS EXPRESS</span>
+                <h2>Despachos Gratuitos en 24 Horas</h2>
+                <p>Compra hoy y recibe mañana sin costos adicionales en tu ciudad.</p>
+            </div>
+        </div>
+        <div class="carrusel-slide">
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Slide 4">
+            <div class="carrusel-caption bg-orange">
+                <span class="tag-live">MODA & ESTILO</span>
+                <h2>Renueva tu Outfit de Temporada</h2>
+                <p>Calzado y prendas con descuentos de hasta el 50% por tiempo limitado.</p>
+            </div>
+        </div>
+        <div class="carrusel-slide">
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Slide 5">
+            <div class="carrusel-caption bg-blue">
+                <span class="tag-live">HOGAR INTELIGENTE</span>
+                <h2>Automatiza tus espacios</h2>
+                <p>Electrodomésticos conectados y asistentes de voz en promoción.</p>
+            </div>
+        </div>
+        <div class="carrusel-slide">
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Slide 6">
+            <div class="carrusel-caption bg-pink">
+                <span class="tag-live">CYBER WEEK</span>
+                <h2>¡Últimas horas de liquidación!</h2>
+                <p>Aprovecha los cupones bancarios y acumula dobles puntos de recompensa.</p>
+            </div>
+        </div>
     </div>
 
-    <p>
-        Total: <span id="totalCarrito">0</span>
-    </p>
-
-    <button id="confirm">
-        Confirmar compra
-    </button>
-
+    <div class="carrusel-dots" id="carruselDots">
+        <span class="dot active" onclick="currentSlideTo(0)"></span>
+        <span class="dot" onclick="currentSlideTo(1)"></span>
+        <span class="dot" onclick="currentSlideTo(2)"></span>
+        <span class="dot" onclick="currentSlideTo(3)"></span>
+        <span class="dot" onclick="currentSlideTo(4)"></span>
+        <span class="dot" onclick="currentSlideTo(5)"></span>
+    </div>
 </section>
 
 
+<section class="categorias-section">
+    <h2>Explorar por categorías</h2>
+    <div class="categorias-container">
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Consolas 🎮</div>
+        </a>
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Celulares 📱</div>
+        </a>
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Laptops 💻</div>
+        </a>
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Audio 🎧</div>
+        </a>
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Moda 👕</div>
+        </a>
+        <a href="#" class="categoria-item">
+            <div class="categoria-icono">Hogar 🏠</div>
+        </a>
+    </div>
+</section>
+
+
+<section class="ofertas-section">
+    <div class="section-title-container">
+        <h2>Ofertas Flash del día 🔥</h2>
+        <a href="#" class="ver-mas-link">Ver todas las ofertas →</a>
+    </div>
+    
+    <div class="productos-container">
+        
+        <div class="card premium-card">
+            <div class="card-badge-discount">35% OFF</div>
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Producto">
+            <div class="card-info">
+                <span class="envio-gratis-tag">Envío gratis</span>
+                <h3>Consola Next-Gen Pro X</h3>
+                <div class="precio-container">
+                    <p class="precio-oferta">$389.00</p>
+                    <span class="precio-antiguo">$599.00</span>
+                </div>
+                <button class="btn-agregar-premium">Añadir al Carrito</button>
+            </div>
+        </div>
+
+        <div class="card premium-card">
+            <div class="card-badge-discount">20% OFF</div>
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Producto">
+            <div class="card-info">
+                <span class="envio-gratis-tag">Envío gratis</span>
+                <h3>Auriculares Inalámbricos ANC</h3>
+                <div class="precio-container">
+                    <p class="precio-oferta">$79.00</p>
+                    <span class="precio-antiguo">$99.00</span>
+                </div>
+                <button class="btn-agregar-premium">Añadir al Carrito</button>
+            </div>
+        </div>
+
+        <div class="card premium-card">
+            <div class="card-badge-discount" style="background:#ff9900;">RECOMENDADO</div>
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Producto">
+            <div class="card-info">
+                <span class="envio-gratis-tag express">Envío Express</span>
+                <h3>Teclado Mecánico RGB</h3>
+                <div class="precio-container">
+                    <p class="precio-oferta">$45.00</p>
+                </div>
+                <button class="btn-agregar-premium">Añadir al Carrito</button>
+            </div>
+        </div>
+
+        <div class="card premium-card">
+            <div class="card-badge-discount">50% OFF</div>
+            <img src="../Imagenes/game-a-hat-in-time.jpg" alt="Producto">
+            <div class="card-info">
+                <span class="envio-gratis-tag">Envío gratis</span>
+                <h3>Smartwatch Series 8 Sport</h3>
+                <div class="precio-container">
+                    <p class="precio-oferta">$120.00</p>
+                    <span class="precio-antiguo">$240.00</span>
+                </div>
+                <button class="btn-agregar-premium">Añadir al Carrito</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carrusel-slide');
+    const track = document.getElementById('carruselTrack');
+    const dots = document.querySelectorAll('.dot');
+
+    function updateSlide() {
+        track.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, index) => {
+            if(index === currentSlide) dot.classList.add('active');
+            else dot.classList.remove('active');
+        });
+    }
+
+    function moveSlide(direction) {
+        currentSlide += direction;
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        } else if (currentSlide < 0) {
+            currentSlide = slides.length - 1;
+        }
+        updateSlide();
+    }
+
+    function currentSlideTo(index) {
+        currentSlide = index;
+        updateSlide();
+    }
+
+    let autoPlay = setInterval(() => moveSlide(1), 6000);
+
+    document.querySelectorAll('.carrusel-btn, .dot').forEach(elem => {
+        elem.addEventListener('click', () => {
+            clearInterval(autoPlay);
+            autoPlay = setInterval(() => moveSlide(1), 6000);
+        });
+    });
+</script>
+<script>
+    // Abre y cierra el carrito al presionar el botón en móvil
+document.querySelector('#nav-cart > a').addEventListener('click', function(e) {
+    if (window.innerWidth <= 768) {
+        e.preventDefault(); 
+        document.getElementById('nav-cart').classList.toggle('active');
+    }
+});
+
+// Evita que el carrito se cierre si presionas dentro de él (lista de productos, confirmar compra, etc.)
+document.getElementById('carrito').addEventListener('click', function(e) {
+    e.stopPropagation();
+});
+</script>
 
 <script src="../Funcionalidad/menuHambuguesa.js"></script>
 <script src="../Funcionalidad/authentication.js"></script>
 <script src="../Funcionalidad/navbar.js"></script>
-
 
 </body>
 </html>

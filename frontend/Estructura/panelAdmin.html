@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="../Diseño/panelAdmin.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">Win<span>Shop</span></div>
+        
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+
+        <ul class="nav-links" id="nav-links">
+            <li id="nav-login"><a href="login.html">Iniciar sesión</a></li>
+            <li id="nav-user" style="display:none"><a href="#"></a></li>
+            <li><a href="Index.html" class="active-link">Inicio</a></li>
+            <li id="nav-productos"><a href="productos.html">Productos</a></li>
+            <li id="nav-register"><a href="registro.html">Registrarse</a></li>
+            <li id="nav-support"><a href="contacto.html">Soporte</a></li>
+            
+            <li id="nav-cart" style="display: none;">
+                <a href="#" class="cart-badge">🛒 <span id="cart-count">0</span></a>
+                
+                <section id="carrito">
+                    <h3>Tu carrito</h3>
+                    <div id="Productos-agregados">
+                        <ul></ul>
+                    </div>
+                    <div class="total-box">
+                        <p>Total: <span id="totalCarrito">0</span></p>
+                    </div>
+                    <button id="confirm">Confirmar compra</button>
+                </section>
+            </li>
+
+            <li id="nav-panelAdmin" style="display:none"><a href="panelAdmin.html">Administración</a></li>
+            <li id="nav-panel" style="display:none"><a href="panelVendedor.html">Ventas</a></li>
+            <li id="nav-logout" style="display: none;"><a href="#">Cerrar sesión</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="admin-dashboard-container">
+    
+    <header class="admin-header-zone">
+        <h1>Panel de Administración</h1>
+        <p>Monitoreo global de usuarios, vendedores y clientes de la plataforma.</p>
+    </header>
+    
+    <section class="admin-stats-grid">
+        <div class="stat-card">
+            <span class="stat-icon">👥</span>
+            <div class="stat-info">
+                <h4>Total Usuarios</h4>
+                <p id="stat-total-usuarios">0</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-icon">💼</span>
+            <div class="stat-info">
+                <h4>Vendedores</h4>
+                <p id="stat-total-vendedores">0</p>
+            </div>
+        </div>
+        <div class="stat-card">
+            <span class="stat-icon">🛒</span>
+            <div class="stat-info">
+                <h4>Clientes Normales</h4>
+                <p id="stat-total-clientes">0</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="admin-table-section">
+        <div class="table-header-actions">
+            <h2>Listado General de Usuarios</h2>
+            <div class="buscador-tabla">
+                <input type="text" id="input-buscar-usuario" placeholder="Buscar por nombre o correo...">
+            </div>
+        </div>
+
+        <div class="table-responsive-container">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID (MongoDB)</th>
+                        <th>Nombre</th>
+                        <th>Correo Electrónico</th>
+                        <th>Rol Actual</th>
+                        <th>Acciones de Gestión</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-usuarios-body">
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>
+
+<div id="modal-cambiar-rol" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Actualizar Rol de Usuario</h3>
+            <button class="btn-close-modal" onclick="cerrarModalCambiarRol()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>Selecciona el nuevo rol para el usuario:</p>
+            <input type="hidden" id="modal-usuario-id"> 
+            
+            <select id="select-nuevo-rol" class="modal-select">
+                <option value="cliente">Cliente (Usuario Normal)</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <button class="btn-modal-cancelar" onclick="cerrarModalCambiarRol()">Cancelar</button>
+            <button class="btn-modal-guardar" id="btn-guardar-rol">Guardar Cambios</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-eliminar-usuario" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 class="modal-title-danger">⚠️ Confirmar Eliminación</h3>
+            <button class="btn-close-modal" onclick="cerrarModalEliminarUsuario()">&times;</button>
+        </div>
+        <div class="modal-body">
+            <p>¿Estás seguro de que deseas eliminar permanentemente a este usuario?</p>
+            <p class="modal-alert-box">
+                <strong>Advertencia:</strong> Esta acción quitará al usuario del sistema de forma definitiva.
+            </p>
+            <input type="hidden" id="modal-eliminar-id">
+        </div>
+        <div class="modal-footer">
+            <button class="btn-modal-cancelar" onclick="cerrarModalEliminarUsuario()">Cancelar</button>
+            <button class="btn-modal-guardar btn-modal-danger">Eliminar permanentemente</button>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container"></div>
+
+<script>
+    // --- Control de Ventanas Emergentes (Modales) ---
+    function abrirModalCambiarRol(id, rolActual) {
+        const modal = document.getElementById('modal-cambiar-rol');
+        document.getElementById('modal-usuario-id').value = id;
+        document.getElementById('select-nuevo-rol').value = rolActual;
+        modal.classList.add('active');
+    }
+
+    function cerrarModalCambiarRol() {
+        document.getElementById('modal-cambiar-rol').classList.remove('active');
+    }
+
+    // --- Control de Ventanas Emergentes (Modales) ---
+    function abrirModalEliminarUsuario(id) {
+        const modal = document.getElementById('modal-eliminar-usuario');
+        document.getElementById('modal-eliminar-id').value = id;
+        modal.classList.add('active');
+    }
+
+    function cerrarModalEliminarUsuario() {
+        document.getElementById('modal-eliminar-usuario').classList.remove('active');
+    }
+
+    // --- Sistema de Notificaciones Flotantes (Toasts) ---
+    function mostrarToast(mensaje, tipo = 'success') {
+        cerrarModalCambiarRol();
+        cerrarModalEliminarUsuario();
+
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        
+        toast.className = `toast ${tipo}`;
+        toast.innerText = mensaje;
+
+        container.appendChild(toast);
+
+        setTimeout(() => { toast.classList.add('visible'); }, 10);
+
+        setTimeout(() => {
+            toast.classList.remove('visible');
+            setTimeout(() => { toast.remove(); }, 300);
+        }, 3500);
+    }
+</script>
+
+<script>
+    // Control del Carrito en vista Móvil
+    document.querySelector('#nav-cart > a').addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); 
+            document.getElementById('nav-cart').classList.toggle('active');
+        }
+    });
+
+    document.getElementById('carrito').addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
+</script>
+
+<script src="../Funcionalidad/menuHambuguesa.js"></script>
+<script src="../Funcionalidad/navbar.js"></script>
+<script src="../Funcionalidad/panelAdmin.js"></script>
+</body>
+</html>
