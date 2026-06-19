@@ -11,7 +11,7 @@ const url = "mongodb://localhost:27017";
 const client = new MongoClient(url);
 
 let db;
-let coleccion; // Declarada correctamente para evitar problemas de ámbito
+let coleccion;
 
 async function conectar(){
     await client.connect();
@@ -56,7 +56,7 @@ app.post("/register", async (req, res) => {
             // 2. IMPORTANTE: Le agregamos al objeto 'datos' el _id que le asignó MongoDB nativamente
             datos._id = resultado.insertedId;
 
-            // 3. Enviamos el objeto 'datos' completo. Tu JS ahora tendrá el nombre, correo y rol para loguearlo directo
+            // 3. Enviamos el objeto 'datos' completo. Para que se loguee directo luego del registro
             res.json(datos); 
             
         } else {
